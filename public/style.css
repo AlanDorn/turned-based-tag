@@ -2,9 +2,28 @@
     width: 20px;
     height: 20px;
     background-color:blueviolet;
+    
 }
-#wall{
+.wall{
     width: 200px;
     height: 20px;
     background-color:black;
+}
+#WalkablePath{
+    width: 200px;
+    height: 20px;
+    background-color:whitesmoke;
+}
+#wrapper{
+    /* display: flex; */
+    width: 500px;
+    height: 500px;
+    overflow: hidden; /* https://stackoverflow.com/questions/5803023/how-to-place-two-divs-next-to-each-other */
+    background-color:seagreen;
+}
+#goal{
+    width: 20px;
+    height: 20px;
+    background-color:darkorange;
+    
 }

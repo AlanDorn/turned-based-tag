@@ -2,8 +2,7 @@ import {isCollide} from '/script2.js'
 const player = document.getElementById(`player`);
 let xPosition = 0;
 let yPosition = 0;
-// let xPrev ;
-// let yPrev ;
+
 let latestPlayerInput = "none";
 
 setInterval(movePlayer, 1);
@@ -16,6 +15,9 @@ document.addEventListener("keydown", function (event) {
       
   }
 });
+
+let lastxPosition = xPosition;
+let lastyPosition = yPosition;
 
 function movePlayer() {
     console.log(isCollide(player));
@@ -43,7 +45,19 @@ function movePlayer() {
       break;
     default:
       // Handle other keys if needed
-      break;
+      return;
   }
+
+  //if collision detected move player back to last position
+  if(isCollide(player)){
+    console.log("No bueno, collision detected!!");
+    xPosition = lastxPosition;
+    yPosition = lastyPosition;
+    player.style.transform = `translate(${xPosition}px, ${yPosition}px)`;
+  } else { //if no collision update x and y positions respectively in the event that next time player runs into wall
+    lastxPosition = xPosition;
+    lastyPosition = yPosition;
+  }
+
   latestPlayerInput = "none";
 }

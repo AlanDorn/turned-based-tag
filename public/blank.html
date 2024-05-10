@@ -1,22 +1,54 @@
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="/style.css" />
-    
+
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Welcome to My Website</h1>
     <p>This is a simple HTML5 document.</p>
+    <div id="wrapper">
+        <!-- border of map -->
+      <div class="wall" style="width: 500px; height: 20px"></div>
+      <div class="wall" style="width: 20px; height: 500px; float: left"></div>
+      <div class="wall" style="width: 20px; height: 500px; float: right"></div>
+      <div class = "wall" style = "width: 500px; height: 20px; position:relative; bottom:-460; left:0; right: 0;"></div>
+        <!-- end of border of map -->
+      
+      <div id="WalkablePath" style="width: 60px; height: 40px; position:relative; top:-20; left:20;">
+        <div id="player" style="float: left; position:relative; right:20;"></div>
+        </div>
+        <div class="wall" style="width: 60px; height: 40px; position:relative; top:-20; left:20;" ></div>
+        <div class="wall" style="width: 20px; height: 160px; position:relative; top:-100; left:100;" ></div>
+        <div class="wall" style="width: 40px; height: 20px; position:relative; top:-100; left:80;" ></div>
+        <div class="wall" style="width: 200px; height: 20px; position:relative; top:-80; left:20;" ></div>
+        <div class="wall" style="width: 40px; height: 40px; position:relative; top:-40; left:60;" ></div>
+        <div class="wall" style="width: 40px; height: 40px; position:relative; top:-300; left:160;" ></div>
+        <div class="wall" style="width: 40px; height: 40px; position:relative; top:-280; left:160;" ></div>
+        <div class="wall" style="width: 20px; height: 20px; position:relative; top:-340; left:220;" ></div>
+        <!-- <div class="wall" style="width: 100px; height: 20px; position:relative; top:-340; left:280;" ></div>
 
-    <div id = "player">
+        <div class="wall" style="width: 200px; height: 20px; position:relative; top:-340; left:280;" ></div>
+        <div class="wall" style="width: 100px; height: 20px; position:relative; top:-340; left:280;" ></div>
+        <div class="wall" style="width: 100px; height: 20px; position:relative; top:-340; left:280;" ></div> -->
 
+        
+      
+      <!-- <div class="wall"></div>
+      <div id="WalkablePath"></div>
+
+       <div class="wall" style="width: 80px; height: 200px; float: left"></div> -->
+      <!-- <div
+        id="WalkablePath"
+        style="width: 80px; height: 200px; float: left"
+      ></div>
+      <div class="wall" style="width: 80px; height: 200px; float: left"></div> -->
+      
     </div>
-    <div id = "wall">
-
-    </div>
-</body>
-    <script type="module" src="script.js"></script> <!-- later on make this the world -->
-    <!-- <script src="script2.js"></script> -->
+  </body>
+  <script type="module" src="script.js"></script>
+  <!-- later on make this the world -->
+  <!-- <script src="script2.js"></script> -->
 </html>
