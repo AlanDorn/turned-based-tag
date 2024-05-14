@@ -1,29 +1,40 @@
-#player{
+#player {
     width: 20px;
     height: 20px;
-    background-color:blueviolet;
-    
-}
-.wall{
+    background-color: blueviolet;
+    z-index: 99;
+
+  }
+
+  .wall {
     width: 200px;
     height: 20px;
-    background-color:black;
-}
-#WalkablePath{
+    background-color: black;
+  }
+
+  #WalkablePath {
     width: 200px;
     height: 20px;
-    background-color:whitesmoke;
-}
-#wrapper{
+    background-color: whitesmoke;
+  }
+  .enemyBase {
+    width: 200px;
+    height: 20px;
+    background-color: whitesmoke;
+  }
+
+  #map {
     /* display: flex; */
     width: 500px;
     height: 500px;
-    overflow: hidden; /* https://stackoverflow.com/questions/5803023/how-to-place-two-divs-next-to-each-other */
-    background-color:seagreen;
-}
-#goal{
+    overflow: hidden;
+    /* https://stackoverflow.com/questions/5803023/how-to-place-two-divs-next-to-each-other */
+    background-color: seagreen;
+  }
+
+  .goal {
     width: 20px;
     height: 20px;
-    background-color:darkorange;
-    
-}
+    background-color: darkorange;
+
+  }
