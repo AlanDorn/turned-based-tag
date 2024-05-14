@@ -97,3 +97,13 @@ function end(){
     window.alert('Congratulations! You have reached the goal!');
     window.location.reload();
 }
+
+const socket = new WebSocket('ws://localhost:3001');
+
+socket.onmessage = function(event) {
+  console.log('Message from server ', event.data);
+};
+
+socket.onopen = function(event) {
+  socket.send('Hello Server!');
+};
