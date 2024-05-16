@@ -5,6 +5,13 @@
     z-index: 99;
 
   }
+  #enemy {
+    width: 20px;
+    height: 20px;
+    background-color:firebrick;
+    z-index: 99;
+
+  }
 
   .wall {
     width: 200px;

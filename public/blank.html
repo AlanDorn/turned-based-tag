@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="/style.css" />
 
-    <title>Document</title>
+    <title>game</title>
   </head>
   <body>
     <h1>yoyoyo</h1>
@@ -56,11 +56,14 @@
           style="width: 80px; height: 200px; float: left"
         ></div>
         <div class="wall" style="width: 80px; height: 200px; float: left"></div> -->
-      <div class="enemyBase" style="width: 60px; height: 40px; position:relative; top:-420; left:420;"></div>
+      <div class="enemyBase" style="width: 60px; height: 40px; position:relative; top:-420; left:420;">
+        <div id="enemy" style="float: left; position:relative; right:40; top:20;"></div>
+      </div>
       <div class="goal" style="width: 20px; height: 20px; position:relative; top:-440; left:320;"></div>
     </div>
     
   </body>
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
   <script type="module" src="script.js"></script>
   <!-- later on make this the world -->
   <!-- <script src="script2.js"></script> -->

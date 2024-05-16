@@ -1,6 +1,11 @@
-import {isCollide} from '/script2.js'
+// import '/client.js'; //client portion
+import {isCollide} from '/collision.js';
 const player = document.getElementById(`player`);
+const enemy = document.getElementById(`enemy`);
 
+const socket = io(); 
+
+const playerBase = document.querySelector('WalkablePath');
 
 const goal = document.querySelectorAll(`.goal`);
 
@@ -11,11 +16,12 @@ let lastyPosition = yPosition;
 
 let latestPlayerInput = "none";
 
-setInterval(movePlayer, 10);
+setInterval(movePlayer, 100);
 
 document.addEventListener("keydown", function (event) {
   // addEventListener runs every time event happens
-  if (event.key == "w" || event.key == "a" || event.key == "s" || event.key == "d"){
+  if (event.key == "w" || event.key == "a" || event.key == "s" || event.key == "d" || 
+  event.key == 'ArrowUp' || event.key == "ArrowLeft" || event.key == "ArrowDown" || event.key == "ArrowRight"){
      
     latestPlayerInput = event.key;
       
@@ -23,6 +29,16 @@ document.addEventListener("keydown", function (event) {
 });
 
 // export {isCollide};
+const players = {
+
+}
+// socket.on('updatePlayers', (backEndPlayers) => {
+//   for( const id in backEndPlayers){
+//     const backEndPlayers = backEndPlayers[id]
+    
+//   }
+
+// })
 
 function VICTORY(player){
     const rect1 = player.getBoundingClientRect();
@@ -41,33 +57,55 @@ function VICTORY(player){
 }
 
 function movePlayer() {
-    console.log(isCollide(player));
+  console.log(isCollide(player));
 
-  switch (latestPlayerInput) {
-    case "w":
-      yPosition -= 10;
-      player.style.transform = `translate(${xPosition}px, ${yPosition}px)`;
-      console.log("Move up");
-      break;
-    case "a":
-      xPosition -= 10;
-      player.style.transform = `translate(${xPosition}px, ${yPosition}px)`;
-      console.log("Move left");
-      break;
-    case "s":
-      yPosition += 10;
-      player.style.transform = `translate(${xPosition}px, ${yPosition}px)`;
-      console.log("Move down");
-      break;
-    case "d":
-      xPosition += 10;
-      player.style.transform = `translate(${xPosition}px, ${yPosition}px)`;
-      console.log("Move right");
-      break;
-    default:
-      // Handle other keys if needed
-      return;
-  }
+//obtain input from user keyboard
+switch (latestPlayerInput) { //https://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript
+  case ("w"): //up
+    case ("ArrowUp"): //up //https://javagoal.com/switch-statement-java/
+    yPosition -= 10;
+    player.style.transform = `translate(${xPosition}px, ${yPosition}px)`;
+    console.log("Move up");
+    break;
+  case "a": //left
+    case ("ArrowLeft"): //left
+    xPosition -= 10;
+    player.style.transform = `translate(${xPosition}px, ${yPosition}px)`;
+    console.log("Move left");
+    break;
+  case "s":
+    case ("ArrowDown"):
+    yPosition += 10;
+    player.style.transform = `translate(${xPosition}px, ${yPosition}px)`;
+    console.log("Move down");
+    break;
+  case "d":
+    case ("ArrowRight"):
+    xPosition += 10;
+    player.style.transform = `translate(${xPosition}px, ${yPosition}px)`;
+    console.log("Move right");
+    break;
+  default:
+    // Handle other keys if needed
+    return;
+}
+  
+  // if(latestPlayerInput){
+  //   if((latestPlayerInput === "w") || (latestPlayerInput === "ArrowUp")){
+  //     yPosition -= 10;
+  //     player.style.transform = `translate(${xPosition}px, ${yPosition}px)`;
+  //     console.log("Move up");
+  //     return;
+  //   }
+  //   else if((latestPlayerInput === "s") || (latestPlayerInput === "ArrowDown")){
+  //     yPosition += 10;
+  //     player.style.transform = `translate(${xPosition}px, ${yPosition}px)`;
+  //     console.log("Move down");
+  //     return;
+  //   }
+  // }else{
+  //   console.log("no input");
+  // }
   
 
   //if collision detected move player back to last position
@@ -98,12 +136,14 @@ function end(){
     window.location.reload();
 }
 
-const socket = new WebSocket('ws://localhost:3001');
 
-socket.onmessage = function(event) {
-  console.log('Message from server ', event.data);
-};
 
-socket.onopen = function(event) {
-  socket.send('Hello Server!');
-};
+// const socket = new WebSocket('ws://localhost:3001');
+
+// socket.onmessage = function(event) {
+//   console.log('Message from server ', event.data);
+// };
+
+// socket.onopen = function(event) {
+//   socket.send('Hello Server!');
+//};
